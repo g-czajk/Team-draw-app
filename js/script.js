@@ -1,3 +1,5 @@
+// GENERAL VARIABLES
+
 const inputTeamsNumber = document.querySelector('.teams-number-input');
 const inputTeamsSize = document.querySelector('.teams-size-input');
 const inputPlayers = document.querySelector('.players-input');
@@ -9,6 +11,7 @@ const btnPlayers = document.querySelector('.players-button');
 const btnDraw = document.querySelector('.draw');
 
 const restart = document.querySelector('.restart');
+const restartMobile = document.querySelector('.restart.mobile');
 
 const teamNameOne = ['Dzikie', 'Potężne', 'Mocarne', 'Szybkie', 'Waleczne', 'Wściekłe', 'Kosmiczne', 'Ekwilibrystyczne', 'Galaktyczne', 'Eksplodujące', 'Zaciekłe', 'Radosne'];
 
@@ -16,23 +19,19 @@ const teamNameTwo = ['Dziki', 'Słonie', 'Komary', 'Muchy', 'Leszcze', 'Kaszalot
 
 const playersArray = [];
 
-// STYLE RESTART BUTTON FOR LOW RESOLUTIONS
-
-if (window.innerWidth <= 420) {
-    restart.innerHTML = '<i class="fas fa-sync-alt"></i>';
-}
-
-// DEFAULT FOCUS FIRST INPUT
-
-document.addEventListener('load', inputTeamsNumber.focus());
-
-
 // RESTART APP
 
 restart.addEventListener('click', () => {
     window.location.reload();
 })
 
+restartMobile.addEventListener('click', () => {
+    window.location.reload();
+})
+
+// DEFAULT FOCUS FIRST INPUT
+
+document.addEventListener('load', inputTeamsNumber.focus());
 
 // INSERT TEAMS NUMBER AND CREATE DIVS FOR DRAW RESULT DISPLAY
 
@@ -77,7 +76,6 @@ const acceptTeamsSize = (e) => {
 }
 
 btnTeamsSize.addEventListener('click', acceptTeamsSize);
-
 
 // ADD NEW PLAYERS AND SHOW THEM IN PLAYERS LIST; ADD EACH PLAYER TO ARRAY
 
@@ -129,7 +127,7 @@ btnPlayers.addEventListener('click', playerInsert);
 
 // DELETE SINGLE PLAYER FROM PLAYER LIST AND ARRAY
 
-const deletePlayer = document.getElementsByClassName('delete-btn'); /*HTMLCollection*/
+const deletePlayer = document.getElementsByClassName('delete-btn');
 
 const removePlayerFromListAndArray = (e) => {
     const deletePlayerArray = [...deletePlayer];
@@ -177,7 +175,6 @@ const drawTeams = () => {
             if (resultDiv1.childElementCount - 1 < inputTeamsSize.value) {
                 playerParagraph.textContent = ++playerNoTeam1 + ". " + playerParagraph.textContent;
                 resultDiv1.appendChild(playerParagraph);
-                // document.querySelector(`.result div.team${Math.floor(Math.random() * inputTeamsNumber.value + 1)}`).appendChild(playerParagraph);
             } else {
                 playerParagraph.textContent = ++playerNoTeam2 + ". " + playerParagraph.textContent;
                 resultDiv2.appendChild(playerParagraph);
@@ -214,6 +211,7 @@ const drawTeams = () => {
     btnDraw.classList.remove('active');
     document.querySelectorAll('.result div h2').forEach((h2) => h2.classList.add('active-h2'));
     restart.classList.add('move');
+    restartMobile.classList.add('move');
 }
 
 btnDraw.addEventListener('click', drawTeams);
