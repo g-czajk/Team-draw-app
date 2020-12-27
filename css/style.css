@@ -43,6 +43,7 @@
     cursor: pointer;
     transition: 2s;
     text-align: center;
+    -webkit-animation: show 3s ease both;
     animation: show 3s ease both;
 }
 
@@ -67,6 +68,7 @@
     text-align: center;
     cursor: pointer;
     transition: .3s;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -87,6 +89,7 @@
 }
 
 .restart.move {
+    -webkit-animation: restart-move 3s ease both;
     animation: restart-move 3s ease both;
 }
 
@@ -104,6 +107,7 @@
     width: 50%;
     height: 40vh;
     transform: translateX(-50%);
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -111,6 +115,7 @@
     padding-bottom: 20px;
     font-size: 36px;
     text-align: center;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -121,6 +126,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -130,6 +136,7 @@
     border-radius: 10px;
     font-size: 20px;
     background-color: #00000055;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -144,6 +151,7 @@
     align-items: center;
     justify-content: center;
     flex-basis: 65%;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -172,6 +180,7 @@
     border-radius: 10px;
     font-size: 26px;
     background-color: #00000055;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -193,6 +202,7 @@
     width: 100%;
     margin-bottom: 2vh;
     transition: 1s;
+    -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
 
@@ -272,22 +282,27 @@ button i {
 }
 
 button:hover i {
+    -webkit-animation: fade .7s ease-in both;
     animation: fade .7s ease-in both;
 }
 
 button i:nth-of-type(2) {
+    -webkit-animation-delay: .2s;
     animation-delay: .2s;
 }
 
 button i:nth-of-type(3) {
+    -webkit-animation-delay: .4s;
     animation-delay: .4s;
 }
 
 .players-button:hover i {
+    -webkit-animation: none;
     animation: none;
 }
 
 .players-button.animate i {
+    -webkit-animation: fade .5s ease-in both;
     animation: fade .5s ease-in both;
 }
 
@@ -296,6 +311,20 @@ footer {
     bottom: 1vh;
     left: 1vh;
     font-weight: bold;
+}
+
+@-webkit-keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes show {
@@ -310,6 +339,34 @@ footer {
     100% {
         opacity: 1;
     }
+}
+
+@-webkit-keyframes restart-move {
+    0% {
+        bottom: 3vh;
+        right: 3vw;
+    }
+
+    40% {
+        bottom: 16vh;
+        right: calc(50vw - 130px);
+        background-color: #00000088;
+    }
+
+    41% {
+        transform: scale(1);
+        bottom: 16vh;
+        right: calc(50vw - 130px);
+        background-color: #00000088;
+    }
+
+    100% {
+        transform: scale(1.2);
+        bottom: 16vh;
+        right: calc(50vw - 130px);
+        background-color: #00000088;
+    }
+
 }
 
 @keyframes restart-move {
@@ -340,6 +397,31 @@ footer {
 
 }
 
+@-webkit-keyframes restart-move-mobile {
+    0% {
+        bottom: 2vh;
+        right: 2vh;
+    }
+
+    40% {
+        bottom: 16vh;
+        right: calc(50vw - 15px);
+    }
+
+    41% {
+        transform: scale(1);
+        bottom: 16vh;
+        right: calc(50vw - 15px);
+    }
+
+    100% {
+        transform: scale(1.5);
+        bottom: 16vh;
+        right: calc(50vw - 15px);
+    }
+
+}
+
 @keyframes restart-move-mobile {
     0% {
         bottom: 2vh;
@@ -363,6 +445,20 @@ footer {
         right: calc(50vw - 15px);
     }
 
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1
+    }
 }
 
 @keyframes fade {
@@ -426,6 +522,8 @@ footer {
         bottom: 2vh;
         right: 2vh;
         padding: 5px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
         width: max-content;
         border: none;
         text-align: center;
@@ -438,6 +536,7 @@ footer {
     }
 
     .restart.mobile.move {
+        -webkit-animation: restart-move-mobile 3s ease both;
         animation: restart-move-mobile 3s ease both;
     }
 
@@ -540,6 +639,8 @@ footer {
         bottom: 2vh;
         right: 2vh;
         padding: 5px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
         width: max-content;
         border: none;
         text-align: center;
@@ -552,6 +653,7 @@ footer {
     }
 
     .restart.mobile.move {
+        -webkit-animation: restart-move-mobile 3s ease both;
         animation: restart-move-mobile 3s ease both;
     }
 
@@ -582,6 +684,7 @@ footer {
         align-items: center;
         justify-content: center;
         flex-basis: 65%;
+        -webkit-animation: show 1.5s ease both;
         animation: show 1.5s ease both;
     }
 
