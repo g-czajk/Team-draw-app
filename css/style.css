@@ -8,7 +8,14 @@
     --fontFamily: 'roboto condensed', sans-serif;
 }
 
+body {
+    background-color: #dfdfdf;
+}
+
+/* APP WRAPPER */
+
 .content-wrap {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -22,6 +29,8 @@
     font-family: var(--fontFamily);
     color: white;
 }
+
+/* DRAW CIRCLE */
 
 .draw {
     display: none;
@@ -54,8 +63,10 @@
     transform: translateX(50%) rotate(1440deg);
 }
 
+/* RESTART BUTTON */
+
 .restart {
-    position: fixed;
+    position: absolute;
     bottom: 3vh;
     right: 3vw;
     width: 260px;
@@ -96,6 +107,8 @@
 .restart.mobile {
     display: none;
 }
+
+/* LIST OF INSERTED PLAYERS */
 
 .player-list {
     display: none;
@@ -146,6 +159,8 @@
     cursor: pointer;
 }
 
+/* DRAW RESULT DISPLAY */
+
 .result {
     display: flex;
     align-items: center;
@@ -183,6 +198,8 @@
     -webkit-animation: show 1.5s ease both;
     animation: show 1.5s ease both;
 }
+
+/* DATA INPUTS */
 
 .teams-input-wrap {
     display: flex;
@@ -254,6 +271,8 @@ input:focus {
     font-size: 35px;
 }
 
+/* BUTTONS */
+
 button {
     padding: 10px 20px;
     border: 2px solid white;
@@ -306,12 +325,21 @@ button i:nth-of-type(3) {
     animation: fade .5s ease-in both;
 }
 
+/* FOOTER  */
+
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 1vh;
     left: 1vh;
     font-weight: bold;
 }
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ANIMATION */
 
 @-webkit-keyframes show {
     0% {
