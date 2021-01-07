@@ -13,10 +13,6 @@ const btnDraw = document.querySelector('.draw');
 const restart = document.querySelector('.restart');
 const restartMobile = document.querySelector('.restart.mobile');
 
-const teamNameOne = ['Dzikie', 'Potężne', 'Mocarne', 'Szybkie', 'Waleczne', 'Wściekłe', 'Kosmiczne', 'Ekwilibrystyczne', 'Galaktyczne', 'Eksplodujące', 'Zaciekłe', 'Radosne'];
-
-const teamNameTwo = ['Dziki', 'Słonie', 'Komary', 'Muchy', 'Leszcze', 'Kaszaloty', 'Kasztany', 'Dzbany', 'Goryle', 'Byki', 'Parówki', 'Miśki'];
-
 const playersArray = [];
 
 // RESTART APP
@@ -46,7 +42,8 @@ const acceptTeamsNumber = (e) => {
             document.querySelectorAll('.result div').forEach(div => div.appendChild(h2ForchEachDiv));
         }
         document.querySelectorAll('.result div').forEach(div => div.classList.add(`team${++teamNo}`));
-        document.querySelectorAll('.result div h2').forEach(h2 => h2.textContent = `${teamNameOne.splice(Math.floor(Math.random() * teamNameOne.length), 1)} ${teamNameTwo.splice(Math.floor(Math.random() * teamNameTwo.length), 1)}:`);
+        teamNo = 0;
+        document.querySelectorAll('.result div h2').forEach(h2 => h2.textContent = `Zespół ${++teamNo}:`);
         document.querySelector('.teams-number').classList.remove('active');
         document.querySelector('.teams-size').classList.add('active');
         inputTeamsSize.focus();
@@ -169,7 +166,8 @@ const drawTeams = () => {
 
     for (let i = 0; i < initialPlayersArrayLength; i++) {
         const playerParagraph = document.createElement('p');
-        playerParagraph.textContent = playersArray.splice(Math.floor(Math.random() * playersArray.length), 1);
+        const drawnPlayer = playersArray.splice(Math.floor(Math.random() * playersArray.length), 1);
+        playerParagraph.textContent = drawnPlayer;
 
         if (inputTeamsNumber.value == 2) {
             if (resultDiv1.childElementCount - 1 < inputTeamsSize.value) {
