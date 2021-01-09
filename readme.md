@@ -15,6 +15,4 @@ Celem aplikacji jest wylosowanie zespołów z równą liczbą zawodników z wpro
     * losuje jednego zawodnika jako indeks z tablicy `playersArray` przy pomocy `Math.random()` i usuwa tego zawodnika z tablicy za pomocą `splice()`,
     * poprzez `appendChild()` dodaje do jednego z elementów `<div>`, utworzonych w kroku nr 1., element `<p>` zawierający `textContent` z danymi wylosowanego zawodnika.
 
-    Pętla kończy działanie po usunięciu wszystkich zawodników z tablicy `playersArray`.
-
-1. Wylosowane zespoły zostają wyświetlone na ekranie.
+    Pętla kończy działanie po usunięciu wszystkich zawodników z tablicy `playersArray` i "wypełnieniu" wszystkich elementów `<div>` elementami `<p>`, zawierającymi dane graczy.
